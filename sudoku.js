@@ -2,6 +2,7 @@ const { log } = require('console');
 const fs = require('fs');
 const { EOL } = require('os');
 
+// функция read
 function read() {
   const row = fs
     .readFileSync('./puzzles.txt', 'utf-8')
@@ -10,23 +11,42 @@ function read() {
     .filter((el) => el !== '');
   return row;
 }
-
-function solve() {
+function makeTable() {
   const length = 9;
   const pattern = new RegExp('.{1,' + length + '}', 'ig');
   const arr = read();
-  let table = arr[0].match(pattern).map((el) => el.replaceAll(/-/gi, '0'));
+  const i = getRandomArbitrary()
+  let table = arr[i].match(pattern).map((el) => el.replaceAll(/-/gi, '0'));
   let row = table.map((el) => el.split(''));
   return row;
-
-  /**
-   * Принимает игровое поле в том формате, в котором его вернули из функции read.
-   * Возвращает игровое поле после попытки его решить.
-   */
 }
-console.table(solve());
+  function getRandomArbitrary() {
+    return Math.floor(Math.random() * (5 - 0));
+  }
+  // конец функции read
+
+
+function solve() {
+
+  
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 function isSolved() {
+   
+
+
   /**
    * Принимает игровое поле в том формате, в котором его вернули из функции solve.
    * Возвращает булевое значение — решено это игровое поле или нет.
