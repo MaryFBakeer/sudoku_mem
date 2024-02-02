@@ -1,4 +1,9 @@
+const fs = require('fs');
+const { EOL } = require('os');
+
 function read() {
+  const row = fs.readFileSync('./puzzles.txt', 'utf-8').trim().split(/[\r\n]/gi).filter((el)=>el!=='');
+  return row
   /**
    * Прочесть файл puzzles.txt в кодировке 'utf-8' и вернуть эти данные из функции
    */
